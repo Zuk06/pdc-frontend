@@ -1,0 +1,34 @@
+{
+	"Mode": "# => 'IHM' ou 'BATCH' : Mode d'utilisation de la plateforme",
+	"UtilisateurNom": "# : Nom de l'utilisateur, du Process",
+	"IdEnseigne": "# : Identifiant Enseigne",
+	"IdExterne": "IdPli GED",
+	"IdComSortante": "Id communication sortante de l'ERP (réf. intéraction)",
+	"ComCode": "# => if Mode == 'BATCH' : Type courrier",
+	"ComCmc7": "Piste CMC7 du chèque <31 caractères>",
+	"IdClient": "Identifiant Client",
+	"Civilite": "Civilité",
+	"Nom": "# : NOM",
+	"Prenom": "PRENOM",
+	"Adr1": "N°APP ou BAL - ÉTAGE - COULOIR - ESC ",
+	"Adr2": "ENTRÉE - BÂTIMENT - IMMEUBLE - RÉSIDENCE",
+	"Adr3": "# => au moins 1 Adr# renseigné : NUMÉRO - LIBELLÉ DE LA VOIE ",
+	"Adr4": "LIEU DIT ou SERVICE PARTICULIER DE DISTRIBUTION",
+	"Cp": "# : CODE POSTAL",
+	"Ville": "# : VILLE",
+	"Pays": "# : Code pays en ISO 3166-1 alpha-2",
+	"Tel": "Numéro de téléphone fixe",
+	"Gsm": "Numéro de téléphone mobile",
+	"Email": "Adresse email",
+	"Ddn": "Date de naissance - Format : AAAA-MM-DD"
+	"Avoir": {
+		"IdAvoir": "Identifiant avoir",
+		"DateAvoir": "Date de l'avoir - Format : AAAA-MM-DD",
+		"IdFacture": "Identifiant facture",
+		"DateFacture": "Date de la facture - Format : AAAA-MM-DD",
+		"IdCommande": "Identifiant commande",
+		"DateCommande": "Date de la commande - Format : AAAA-MM-DD",
+		"IdAction": "Identifiant Campagne-Action",
+		"MontantAvoir": "Montant de l'avoir - decimal(10,2)"
+	}
+}
