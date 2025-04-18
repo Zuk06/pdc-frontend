@@ -87,6 +87,52 @@ src/
 └── hooks/             # Hooks personnalisés
 ```
 
+### 1.3 Structure de la Base de Données
+
+#### 1.3.1 Approche de Stockage
+- Stockage des documents en JSONB (PostgreSQL)
+- Structure flexible et évolutive
+- Conservation de la structure exacte des données
+- Facilité de versionnage des modèles
+- Performance optimisée pour la lecture/écriture
+
+#### 1.3.2 Schéma de la Base
+```sql
+CREATE TABLE documents (
+    id VARCHAR(36) PRIMARY KEY,
+    type_document VARCHAR(20),      -- 'CLIENT', 'COMMANDE', 'FACTURE', 'AVOIR'
+    id_client VARCHAR(20),          -- Référence au client
+    id_document VARCHAR(20),        -- Id spécifique (IdCommande, IdFacture, etc.)
+    date_creation DATETIME,
+    date_modification DATETIME,
+    mode VARCHAR(10),               -- 'IHM' ou 'BATCH'
+    utilisateur_nom VARCHAR(50),
+    id_enseigne VARCHAR(10),
+    data JSONB,                     -- Stockage du document complet
+    statut VARCHAR(20)              -- Statut du document
+);
+```
+
+#### 1.3.3 Index Recommandés
+```sql
+CREATE INDEX idx_documents_type ON documents(type_document);
+CREATE INDEX idx_documents_client ON documents(id_client);
+CREATE INDEX idx_documents_id_document ON documents(id_document);
+CREATE INDEX idx_documents_date_creation ON documents(date_creation);
+```
+
+#### 1.3.4 Avantages de l'Approche
+- Recherche rapide sur les champs clés
+- Flexibilité pour ajouter de nouveaux types de documents
+- Pas de modification de schéma lors de l'évolution des modèles
+- Possibilité d'ajouter des métadonnées sans impacter la structure
+
+#### 1.3.5 Considérations Techniques
+- Utilisation de JSONB pour PostgreSQL (meilleure performance que JSON)
+- Système de versionnage des documents
+- Gestion des index partiels pour optimiser les performances
+- Système d'archivage des documents
+
 ## 2. Points Techniques Critiques
 
 ### 2.1 Génération de Documents
